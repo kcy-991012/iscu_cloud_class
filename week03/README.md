@@ -153,7 +153,7 @@ if (!originalUrl) {
         message: "Original URL is required.",
       },
     },
-    { status: 200 } // TODO
+    { status: 400 } // TODO
   );
 }
 ```
