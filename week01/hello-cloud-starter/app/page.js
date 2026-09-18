@@ -65,14 +65,6 @@ try {
   setIsLoading(false);
 }
 
-    await new Promise((resolve) => {
-      setTimeout(resolve, 800);
-    });
-
-    setResult("입력값 검증이 완료되었습니다. 아직 Backend API와 연결되진 않았습니다.");
-    setIsLoading(false);
-  }
-
   return (
     <main className="page-shell">
       <section className="url-card" aria-labelledby="page-title">
