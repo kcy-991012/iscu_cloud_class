@@ -71,7 +71,7 @@ export async function POST(request) {
             message: "Original URL is required.",
           },
         },
-        { status: 400 }
+        { status: 200 }
       );
     }
 
@@ -94,7 +94,7 @@ export async function POST(request) {
               `URL must be ${MAX_URL_LENGTH} characters or fewer.`,
           },
         },
-        { status: 400 }
+        { status: 200 }
       );
     }
 
@@ -125,7 +125,7 @@ export async function POST(request) {
               "URL must start with http:// or https://.",
           },
         },
-        { status: 400 }
+        { status: 200 }
       );
     }
 
@@ -151,7 +151,7 @@ export async function POST(request) {
               "URL must start with http:// or https://.",
           },
         },
-        { status: 400 }
+        { status: 200 }
       );
     }
 
@@ -178,7 +178,7 @@ export async function POST(request) {
         shortUrl: `${baseUrl}/${shortCode}`,
         originalUrl,
       },
-      { status: 201 }
+      { status: 200 }
     );
 
   } catch {
@@ -198,7 +198,7 @@ export async function POST(request) {
           message: "Failed to create short URL.",
         },
       },
-      { status: 500 }
+      { status: 200 }
     );
   }
 }
