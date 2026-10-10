@@ -7,7 +7,8 @@ export async function saveUrl(shortCode, originalUrl) {
     INSERT INTO urls (short_code, original_url)
     VALUES (${shortCode}, ${originalUrl})
   `;
-  
+}
+
 export async function findUrlByShortCode(shortCode) {
   const rows = await sql`
     SELECT original_url
@@ -17,5 +18,4 @@ export async function findUrlByShortCode(shortCode) {
   `;
 
   return rows[0]?.original_url ?? null;
-}
 }
