@@ -12,17 +12,27 @@ export async function GET() {
     const topUrl = await getTopUrl();
     const urls = await getUrlStats();
 
-    // summary, topUrl, urls를 하나의 JSON 응답으로 반환하세요.
-    // README의 목표 JSON 구조를 참고하세요.
     return Response.json(
       {
         summary: {
-          totalUrls: /* TODO */,
-          totalClicks: /* TODO */,
-          clickedUrls: /* TODO */,
-          topUrl: /* TODO */,
+          totalUrls: Number(summary.total_urls),
+          totalClicks: Number(summary.total_clicks),
+          clickedUrls: Number(summary.clicked_urls),
+          topUrl: topUrl
+            ? {
+                shortCode: topUrl.short_code,
+                originalUrl: topUrl.original_url,
+                clickCount: Number(topUrl.click_count),
+              }
+            : null,
         },
-        urls: /* TODO */,
+        urls: urls.map((item) => ({
+          shortCode: item.short_code,
+          originalUrl: item.original_url,
+          clickCount: Number(item.click_count),
+          createdAt: item.created_at,
+          lastClickedAt: item.last_clicked_at,
+        })),
       },
       {
         headers: {
