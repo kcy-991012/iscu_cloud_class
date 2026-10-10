@@ -2,13 +2,12 @@ import { findUrlByShortCode } from "../../lib/db";
 
 export async function GET(request, { params }) {
   const { shortCode } = await params;
-
   const originalUrl = await findUrlByShortCode(shortCode);
 
-  // TODO
-  // originalUrl이 존재하지 않는 경우
-  // 404 Not Found 응답을 반환하세요.
-
+  // originalUrl이 존재하지 않는 경우 404 Not Found 응답 반환
+  if (!originalUrl) {
+    return new Response("Not Found", { status: 404 });
+  }
 
   return new Response(null, {
     status: 307,
