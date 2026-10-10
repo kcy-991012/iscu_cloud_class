@@ -10,6 +10,7 @@ export async function GET(request, { params }) {
   // 404 Not Found 응답을 반환하세요.
   if (!originalUrl) {
     return new Response("Not Found", { status: 404 });
+    console.warn("Short URL not found", { shortCode });
   }
 
 
