@@ -9,7 +9,6 @@ export async function saveUrl(shortCode, originalUrl) {
   `;
 }
 
-// 이 함수를 아래에 추가하세요!
 export async function findUrlByShortCode(shortCode) {
   const rows = await sql`
     SELECT original_url
